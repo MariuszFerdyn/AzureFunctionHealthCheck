@@ -15,7 +15,7 @@ Install:
 ### Start coding
 ```
 # Navigate to your function app directory
-Set-Location -Path "C:\path\to\your\function_app_directory"
+Set-Location -Path AzureFunctionHealthCheck
 # Create a virtual environment in the current directory
 py -m venv .venv
 # Activate the virtual environment
@@ -39,10 +39,10 @@ code .
 # Publish Function To Azure (To avoid transfering unnessesary files do the deployment after checkout/clone the reposiy - not after running locally)
 ```
 # Navigate to your function app directory
-Set-Location -Path "C:\path\to\your\function_app_directory"
+Set-Location -Path AzureFunctionHealthCheck
 
 # Create a ZIP file of the function app directory
-Compress-Archive -Path . -DestinationPath function_app.zip
+Compress-Archive -Path * -DestinationPath function_app.zip -Force
 
 # Display zip contents
 $tempDir = New-Item -ItemType Directory -Path "$env:TEMP\function_app_temp"
@@ -51,5 +51,9 @@ Get-ChildItem -Path $tempDir -Recurse
 Remove-Item -Path $tempDir -Recurse
 
 # Deploy the ZIP file to Azure Function App using Azure CLI
+az login
+az account show
+az account set --subscription <subscription-id>
 az functionapp deployment source config-zip --resource-group MyResourceGroup --name MyFunctionApp --src function_app.zip
+ az webapp log deployment show -n MyResourceGroup -g MyFunctionApp
 ```
