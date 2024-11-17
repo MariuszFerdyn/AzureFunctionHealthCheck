@@ -1,0 +1,17 @@
+config:
+  log: file
+  #log: syslog
+  #log: file
+  logfile: file
+  # loop_delay:
+  #  -1 - no loop
+  #  0+ - delays (in seconds) between iterations
+  loop_delay: 20
+hosts:
+  - address: google.com
+    prot: httpstatus
+    httpstatus: 200
+  - address: google.com
+    prot: httpstring
+    httpstring: google
+
