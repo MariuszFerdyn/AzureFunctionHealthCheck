@@ -1,5 +1,10 @@
 # AzureFunctionHealthCheck
 This project can be used for creating the Azure Function for Health Check.
+The following can be checked
+- ping
+- http status
+- http string
+- ICAP server processing (needs )
 
 ## Start from scratch (can be ignored if you download this project from github)
 Install:
@@ -9,13 +14,42 @@ Install:
 
 ### Start coding
 ```
+# Navigate to your function app directory
+Set-Location -Path "C:\path\to\your\function_app_directory"
+# Create a virtual environment in the current directory
 py -m venv .venv
+# Activate the virtual environment
 .venv\scripts\activate
+# Initialize a new Azure Functions project with Python
 func init --python
+
+# List available function templates
 func templates list
-func new --name HealtchCheck01 --template "Timer trigger"
+
+# Create a new function named "HealthCheck01" using the "Timer trigger" template
+func new --name HealthCheck01 --template "Timer trigger"
+
+# Open the project in Visual Studio Code
 code .
   ```
 # Run project locally
 - Press F1 and choose ```Azurite: Start```
+- Install dependencies ```pip install -r requirements.txt```
 - Start function locally ```func start --verbose```
+# Publish Function To Azure
+```
+# Navigate to your function app directory
+Set-Location -Path "C:\path\to\your\function_app_directory"
+
+# Create a ZIP file of the function app directory
+Compress-Archive -Path . -DestinationPath function_app.zip
+
+# Display zip contents
+$tempDir = New-Item -ItemType Directory -Path "$env:TEMP\function_app_temp"
+Expand-Archive -Path function_app.zip -DestinationPath $tempDir
+Get-ChildItem -Path $tempDir -Recurse
+Remove-Item -Path $tempDir -Recurse
+
+# Deploy the ZIP file to Azure Function App using Azure CLI
+az functionapp deployment source config-zip --resource-group MyResourceGroup --name MyFunctionApp --src function_app.zip
+```
