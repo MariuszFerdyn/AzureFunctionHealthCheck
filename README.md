@@ -36,7 +36,7 @@ code .
 - Press F1 and choose ```Azurite: Start```
 - Install dependencies ```pip install -r requirements.txt```
 - Start function locally ```func start --verbose```
-# Publish Function To Azure
+# Publish Function To Azure (To avoid transfering unnessesary files do the deployment after checkout/clone the reposiy - not after running locally)
 ```
 # Navigate to your function app directory
 Set-Location -Path "C:\path\to\your\function_app_directory"
