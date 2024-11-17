@@ -55,5 +55,5 @@ az login
 az account show
 az account set --subscription <subscription-id>
 az functionapp deployment source config-zip --resource-group MyResourceGroup --name MyFunctionApp --src function_app.zip
- az webapp log deployment show -n MyResourceGroup -g MyFunctionApp
+az webapp log deployment show -n MyResourceGroup -g MyFunctionApp
 ```
