@@ -42,7 +42,7 @@ code .
 Set-Location -Path AzureFunctionHealthCheck
 
 # Create a ZIP file of the function app directory
-Compress-Archive -Path * -DestinationPath function_app.zip -Force
+Get-ChildItem -Path * -Exclude @('.vscode', '.env', 'README.md', 'local.settings.json', '.gitignore', '.funcignore') | Where-Object { $_.FullName -notlike '*\.vscode\*' -and $_.FullName -notlike '*\.env\*' } | Compress-Archive -DestinationPath function_app.zip -Force
 
 # Display zip contents
 $tempDir = New-Item -ItemType Directory -Path "$env:TEMP\function_app_temp"

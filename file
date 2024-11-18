@@ -1,8 +1,0 @@
-2024-11-17 18:47:35,076 LAB-OpenAI: Loaded config from C:\github\AzureFunctionHealthCheck/config.yml
-2024-11-17 18:47:55,873 LAB-OpenAI: httpstatus http://google.com: PASS 787.85ms 
-2024-11-17 18:47:56,606 LAB-OpenAI: httpstring http://google.com: PASS 735.50ms 
-2024-11-17 18:48:17,343 LAB-OpenAI: httpstatus http://google.com: PASS 746.52ms 
-2024-11-17 18:48:18,075 LAB-OpenAI: httpstring http://google.com: PASS 723.39ms 
-2024-11-17 18:49:29,062 LAB-OpenAI: Loaded config from C:\github\AzureFunctionHealthCheck/config.yml
-2024-11-17 18:49:49,816 LAB-OpenAI: httpstatus http://google.com: PASS 753.41ms 
-2024-11-17 18:49:50,499 LAB-OpenAI: httpstring http://google.com: PASS 685.08ms 
