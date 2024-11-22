@@ -45,7 +45,10 @@ Set-Location -Path AzureFunctionHealthCheck
 pip install --target=".python_packages/lib/site-packages" -r .\requirements.txt
 
 # Create a ZIP file of the function app directory
-Get-ChildItem -Path * -Exclude @('.vscode', '.env', 'README.md', 'local.settings.json', '.gitignore', '.funcignore') | Where-Object { $_.FullName -notlike '*\.vscode\*' -and $_.FullName -notlike '*\.env\*' } | Compress-Archive -DestinationPath function_app.zip -Force
+Get-ChildItem -Path * -Exclude @('.python_packages', '.vscode', '.env', 'README.md', 'local.settings.json', '.gitignore', '.funcignore') | Where-Object { $_.FullName -notlike '*\.python_packages\*' -and $_.FullName -notlike '*\.vscode\*' -and $_.FullName -notlike '*\.env\*' } | Compress-Archive -DestinationPath function_app.zip -Force
+
+# Add to ZIP the packages
+Compress-Archive -Path '.python_packages' -DestinationPath function_app.zip -Update
 
 # Display zip contents
 $tempDir = New-Item -ItemType Directory -Path "$env:TEMP\function_app_temp"
