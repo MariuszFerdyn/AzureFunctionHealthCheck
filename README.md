@@ -41,6 +41,9 @@ code .
 # Navigate to your function app directory
 Set-Location -Path AzureFunctionHealthCheck
 
+# Include Python packages to the deployment
+pip install --target=".python_packages/lib/site-packages" -r .\requirements.txt
+
 # Create a ZIP file of the function app directory
 Get-ChildItem -Path * -Exclude @('.vscode', '.env', 'README.md', 'local.settings.json', '.gitignore', '.funcignore') | Where-Object { $_.FullName -notlike '*\.vscode\*' -and $_.FullName -notlike '*\.env\*' } | Compress-Archive -DestinationPath function_app.zip -Force
 
