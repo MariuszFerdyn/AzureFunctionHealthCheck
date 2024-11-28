@@ -6,6 +6,13 @@ The following can be checked
 - http string
 - ICAP server processing (needs )
 
+See config: https://github.com/MariuszFerdyn/AzureFunctionHealthCheck/blob/main/config.yml
+
+# Start with clone the repo
+```
+git clone https://github.com/MariuszFerdyn/AzureFunctionHealthCheck.git
+```
+
 ## Start from scratch (can be ignored if you download this project from github)
 Install:
 - https://functionscdn.azureedge.net/public/artifacts/v4/latest/func-cli-x64.msi
