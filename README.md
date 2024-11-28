@@ -13,13 +13,13 @@ See config: https://github.com/MariuszFerdyn/AzureFunctionHealthCheck/blob/main/
 git clone https://github.com/MariuszFerdyn/AzureFunctionHealthCheck.git
 ```
 
-## Start from scratch (can be ignored if you download this project from github)
+## Start from scratch - prepare your enviorment
 Install:
 - https://functionscdn.azureedge.net/public/artifacts/v4/latest/func-cli-x64.msi
 - https://www.python.org/ftp/python/3.11.9/python-3.11.9-amd64.exe
 - https://marketplace.visualstudio.com/items?itemName=Azurite.azurite
 
-### Start coding
+### Start coding (can be ignored if you download this project from github)
 ```
 # Navigate to your function app directory
 Set-Location -Path AzureFunctionHealthCheck
