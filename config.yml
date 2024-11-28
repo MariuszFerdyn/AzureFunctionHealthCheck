@@ -2,12 +2,17 @@ config:
   log: file
   #log: syslog
   #log: file
-  logfile: file
+  logfile: file.txt
   # loop_delay:
   #  -1 - no loop
   #  0+ - delays (in seconds) between iterations
-  loop_delay: 20
+  loop_delay: 100
 hosts:
+  - address: google.com
+    prot: icmp
+  - address: google.com
+    prot: tcp
+    tcpport: 443
   - address: google.com
     prot: httpstatus
     httpstatus: 200
