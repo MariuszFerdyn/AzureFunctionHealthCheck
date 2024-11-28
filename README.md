@@ -40,6 +40,17 @@ func new --name HealthCheck01 --template "Timer trigger"
 code .
   ```
 # Run project locally
+```
+# Navigate to your function app directory
+Set-Location -Path AzureFunctionHealthCheck
+# Create a virtual environment in the current directory
+py -m venv .venv
+# Activate the virtual environment
+.venv\scripts\activate
+# Open the project in Visual Studio Code
+code .
+  ```
+
 - Press F1 and choose ```Azurite: Start```
 - Install dependencies ```pip install -r requirements.txt```
 - Start function locally ```func start --verbose```
