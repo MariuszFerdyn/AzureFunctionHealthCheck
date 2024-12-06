@@ -72,7 +72,7 @@ Compress-Archive -Path '.python_packages' -DestinationPath function_app.zip -Upd
 $tempDir = New-Item -ItemType Directory -Path "$env:TEMP\function_app_temp"
 Expand-Archive -Path function_app.zip -DestinationPath $tempDir
 Get-ChildItem -Path $tempDir -Recurse
-Remove-Item -Path $tempDir -Recurse
+Remove-Item -Path "$env:TEMP\function_app_temp" -Recurse
 
 # Deploy the ZIP file to Azure Function App using Azure CLI
 az login
