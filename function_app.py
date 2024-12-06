@@ -38,6 +38,8 @@ def checksum(filename, hashfunc):
 def log(log, end='\n', flush=True):
     if log_dest == 'file' or log_dest == 'syslog':
         logger.info(log)
+    elif log_dest == 'none':
+        pass
     else:
         print(log, end=end, flush=flush)
 

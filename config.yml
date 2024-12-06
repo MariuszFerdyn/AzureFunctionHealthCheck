@@ -1,7 +1,9 @@
 config:
-  log: file
+  log: console
   #log: syslog
   #log: file
+  #log: none
+  #log: console
   logfile: file.txt
   # loop_delay:
   #  -1 - no loop
