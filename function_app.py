@@ -1,12 +1,26 @@
+# Install required packages if not present
+import subprocess
+import sys
+
+def install_package(package):
+    subprocess.check_call([sys.executable, "-m", "pip", "install", package])
+
+required_packages = ['azure-functions', 'PyYAML', 'requests']
+for package in required_packages:
+    try:
+        __import__(package.replace('-', '.'))
+    except ImportError:
+        print(f"Installing {package}...")
+        install_package(package)
+
+# Your original imports
 import azure.functions as func
 import datetime
 import json
 import logging
-import sys
 import yaml
 import ipaddress
 import urllib.parse
-import subprocess
 import socket
 import requests
 import re
