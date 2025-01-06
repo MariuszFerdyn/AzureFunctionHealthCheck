@@ -40,10 +40,12 @@ def log(log, end='\n', flush=True):
         logger.info(log)
     elif log_dest == 'none':
         pass
+    elif log_dest == 'azurefunction':
+        logging.info(log)
     else:
         print(log, end=end, flush=flush)
 
-@app.timer_trigger(schedule="* */1 * * * *", arg_name="myTimer", run_on_startup=False,
+@app.timer_trigger(schedule="0 */5 * * * *", arg_name="myTimer", run_on_startup=False,
               use_monitor=False) 
 def HealtchCheck01(myTimer: func.TimerRequest) -> None:
 
@@ -251,7 +253,11 @@ def HealtchCheck01(myTimer: func.TimerRequest) -> None:
             retcode += 1
             continue
 
-    return retcode
+    if retcode == 0:
+        logging.info("Health check passed.")
+    else:
+        logging.error("Health check failed.")
+    #return 0
 
 ##################
 
